@@ -33,12 +33,12 @@ public class AdminController {
 		return doctorRepo.save(doctor);
 	}
 	
-	@GetMapping("/findAll")
+	@GetMapping("/admin/findAll")
 	public List<Doctor> findAll(){
 		return doctorRepo.findAll();
 	}
 	
-	@GetMapping("/findAllUser")
+	@GetMapping("/public/findAllUser")
 	public List<User> findAllUser(){
 		return userRepo.findAll();
 	}
