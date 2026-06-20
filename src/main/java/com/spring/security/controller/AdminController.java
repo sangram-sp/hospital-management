@@ -44,7 +44,7 @@ public class AdminController {
 	}
 	
 	
-	@GetMapping("/patients")
+	@GetMapping("/public/patients")
 	public ResponseEntity<?>  getAllPatients(){
 		
 		return null;
