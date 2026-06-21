@@ -39,7 +39,8 @@ public class AuthService {
     public SignupRequestDto signup(LoginRequestDto signupRequestDto){
         User user = userRepo.findByUsername(signupRequestDto.getUsername()).orElse(null);
         if(user !=null) throw new IllegalArgumentException("User Already exists");
-        user = userRepo.save(User.builder().username(signupRequestDto.getUsername())
+        user = userRepo.save(User.builder()
+                .username(signupRequestDto.getUsername())
                 .password(passwordEncoder.encode(signupRequestDto.getPassword()))
                 .build()
         );
