@@ -7,12 +7,15 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @RequiredArgsConstructor
 public class WebSecurityConfig {
 
 //	private final PasswordEncoder passwordEncoder ;
+
+	private final JwtAuthFilter jwtAuthFilter;
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
@@ -23,10 +26,10 @@ public class WebSecurityConfig {
 				.authorizeHttpRequests(auth -> auth
 								.requestMatchers("/login").permitAll()
 				.requestMatchers("/public/**", "/auth/**").permitAll()
-				.requestMatchers("/admin/**").hasRole("ADMIN")
-				.requestMatchers("/doctors/**").hasAnyRole("DOCTOR", "ADMIN")
+//				.requestMatchers("/admin/**").hasRole("ADMIN")
 				.anyRequest().authenticated()
-				);
+				)
+				.addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 //				.formLogin(form -> form
 //						.permitAll());
 				return httpSecurity.build();
