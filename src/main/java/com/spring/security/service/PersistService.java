@@ -11,16 +11,16 @@ import jakarta.transaction.Transactional;
 
 public class PersistService {
 
-	@Autowired
-    private DoctorRepository doctorRepository;
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Transactional
-    public Doctor saveDoctor(Doctor doctor) {
-        User savedUser = userRepository.save(doctor.getUser());
-        doctor.setUser(savedUser);
-        return doctorRepository.save(doctor);
-    } 
+//	@Autowired
+//    private DoctorRepository doctorRepository;
+//
+//    @Autowired
+//    private UserRepository userRepository;
+//
+//    @Transactional
+//    public Doctor saveDoctor(Doctor doctor) {
+//        User savedUser = userRepository.save(doctor.getUser());
+//        doctor.setUser(savedUser);
+//        return doctorRepository.save(doctor);
+//    }
 }

@@ -19,8 +19,8 @@ public class Doctor {
 
 	    private String specialization;
 
-	    @OneToOne(cascade = CascadeType.ALL)
-	    @JoinColumn(name = "user_id", nullable = false)
-	    private User user;
+//	    @OneToOne(cascade = CascadeType.ALL)
+//	    @JoinColumn(name = "user_id", nullable = false)
+//	    private User user;
 
 }
